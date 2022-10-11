@@ -1,0 +1,18 @@
+version: '3'
+services:
+  tgapp:
+    image: tg-app
+    restart: unless-stopped
+    build:
+      context: .
+    ports:
+      - "8081:8081"
+    depends_on:
+      - tgpostgres
+  tgpostgres:
+    image: postgres:14.5
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=POSTGRES
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=updates
