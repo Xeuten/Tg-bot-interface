@@ -29,12 +29,12 @@ public class UpdateService {
     @Value("${request.updates}")
     private String UPDATESrequestUrl;
 
-    private final String commandList = "Список команд:\n\"/findItem {id}\" - получить информацию об элементе по идентификатору\n\"/deleteItem {id}\" - удалить элемент по идентификатору\n\"/updatesFrom {date}\" - получить список файлов, обновлённых за 24 часа до переданной даты";
-    private final String invalidFormat = "Некорректный формат команды.";
-    private final String getSent = "Запрос на получение отправлен.";
-    private final String deleteSent = "Запрос на удаление отправлен.";
-    private final String updatesSent = "Запрос списка обновлений отправлен.";
-    private final String serverUnavailable = "Сервер недоступен.";
+    private final String commandList = "Command list:\n\"/findItem {id}\" - get information about an element by id\n\"/deleteItem {id}\" - delete an item by id\n\"/updatesFrom {date}\" - get a list of files updated 24 hours before the given date";
+    private final String invalidFormat = "Incorrect command format.";
+    private final String getSent = "Get request has been sent.";
+    private final String deleteSent = "Delete request has been sent.";
+    private final String updatesSent = "Updates request has been sent.";
+    private final String serverUnavailable = "Server unavailable.";
 
     @SneakyThrows
     public Pair<String, Optional<HttpRequest>> processUpdate(Update update) {

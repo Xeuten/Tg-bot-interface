@@ -10,9 +10,10 @@ public class RabbitMQMessageHandler {
     @Autowired
     private TelegramBotUpdateController telegramBotUpdateController;
 
-    private final String successGET = "Запрос на получение обработан.\n";
-    private final String successDELETE = "Запрос на удаление обработан.\n";
-    private final String sucessUPDATES = "Запрос списка обновлений обработан.\n";
+    private final String successGET = "Get request has been processed.\n";
+    private final String successDELETE = "Delete request has been processed\n";
+    private final String deleted = "Item has been deleted.";
+    private final String sucessUPDATES = "Updates request has been processed.\n";
 
 
     public void sendAnswer(String backendResponse) {
@@ -36,7 +37,7 @@ public class RabbitMQMessageHandler {
         try {
             return message.substring(message.indexOf("{"), message.lastIndexOf("}") + 1);
         } catch (Exception e) {
-            return "";
+            return deleted;
         }
     }
 
